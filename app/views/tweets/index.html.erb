@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-8">
+    <h1>Create a new Tweet</h1>
+
+    <%= render 'form', tweet: @tweet %>
+
+    <h1>Your Feed</h1>
+
+    <% @tweets.each do |tweet| %>
+      <div class="tweet-row">
+        <p class="tweet-text"><span class="email"><%= tweet.user.email %></span> <%= tweet.content %></p>
+        <p><%= tweet.created_at %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h3><%= current_user.email %></h3>
+    <h5>Tweet Count: <%= current_user.tweets.count %></h5>
+  </div>
+</div>
